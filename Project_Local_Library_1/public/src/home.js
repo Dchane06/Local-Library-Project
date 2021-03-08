@@ -82,11 +82,20 @@ let arrPopularAuthors = [];
       }
     }
   }
-  arrPopularAuthors.sort((a,b) => {
-    return b.count - a.count
-  });
-  final = arrPopularAuthors.slice(0,5);
-  return final;
+  // use the helper function to sort and limit array.
+  return shortenArray(arrPopularAuthors);
+}
+
+
+// helper function to shorten the final arrays.
+function shortenArray(arrayToShorten) {
+  // using the sort() method to sort the array by highest count descending
+  arrayToShorten.sort((indexA, indexB) =>
+    indexA.count < indexB.count ? 1 : -1
+  );
+  // shorten the array to a length of 5
+  const shortened = arrayToShorten.slice(0, 5);
+  return shortened;
 }
 
 module.exports = {
