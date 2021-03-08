@@ -48,8 +48,8 @@ function getMostCommonGenres(books) {
   for (key in genres) {
     arrGenres.push({name: key, count: genres[key].count});
   }
-  arrGenres.sort((a,b) => {
-    return b.count - a.count
+  arrGenres.sort((genre1,genre2) => {
+    return genre2.count - genre1.count
   });
   final = arrGenres.slice(0, 5);
   return final;
@@ -61,8 +61,8 @@ for (let i = 0; i < books.length; i++) {
   let book = books[i];
 arrBooks.push({name: book.title, count: book.borrows.length});
 }
-arrBooks.sort((a,b) => {
-  return b.count - a.count
+arrBooks.sort((book1,book2) => {
+  return book2.count - book1.count
 });
 final = arrBooks.slice(0, 5);
 return final;
